@@ -1,2 +1,1 @@
-Este repositorio é referente ao laboratório 1 de SI 1 testando merge
-
+Este repositorio é referente ao laboratório 1 de SI 1
