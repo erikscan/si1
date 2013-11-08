@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TesteZeroADez {
+public class TesteNumerosPorExtenso {
 
 	NumeroPorExtenso ext;
 
@@ -38,6 +38,17 @@ public class TesteZeroADez {
 		Assert.assertEquals("dezoito", ext.extenso(18));
 		Assert.assertEquals("dezenove", ext.extenso(19));
 		Assert.assertEquals("dez", ext.extenso(10));	
+	}	
+	@Test
+	public void testeDezenas(){
+		Assert.assertEquals("vinte", ext.extenso(20));
+		Assert.assertEquals("trinta", ext.extenso(30));
+		Assert.assertEquals("quarenta", ext.extenso(40));
+		Assert.assertEquals("cinquenta", ext.extenso(50));
+		Assert.assertEquals("sessenta", ext.extenso(60));
+		Assert.assertEquals("setenta", ext.extenso(70));
+		Assert.assertEquals("oitenta", ext.extenso(80));
+		Assert.assertEquals("noventa", ext.extenso(90));	
 	}
 
 }
