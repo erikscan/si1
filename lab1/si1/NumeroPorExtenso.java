@@ -15,21 +15,40 @@ public class NumeroPorExtenso {
 			"novecentos" };
 
 	public String extenso(int numero) {
-		String numeroExtenso = "";
 		int centenaDoNumero = numero / 100;
 		int dezenaDoNumero = (numero / 10) - (centenaDoNumero * 10);
-		int unidadeDoNumero = numero - (dezenaDoNumero * 10) - (centenaDoNumero * 100);
+		int unidadeDoNumero = numero - (dezenaDoNumero * 10)
+				- (centenaDoNumero * 100);
 
-		if(numero == 100){
+		if (numero == 100) {
 			return "cem";
-			}
+		}
+
 		if (numero < 20) {
 			return umADezenove[numero];
 		}
-		if(dezenaDoNumero > 1){
-			return centenas[centenaDoNumero] + dezenas[dezenaDoNumero] + umADezenove[unidadeDoNumero];
-		}else{
-			return centenas[centenaDoNumero] + umADezenove[unidadeDoNumero];
+
+		if (dezenaDoNumero > 1) {
+			if (unidadeDoNumero != 0) {
+				if (centenaDoNumero != 0) {
+					return centenas[centenaDoNumero] + " e "
+							+ dezenas[dezenaDoNumero] + " e "
+							+ umADezenove[unidadeDoNumero];
+				}
+				return dezenas[dezenaDoNumero] + " e "
+						+ umADezenove[unidadeDoNumero];
+
+			} else {
+				if (centenaDoNumero != 0) {
+					return centenas[centenaDoNumero] + " e "
+							+ dezenas[dezenaDoNumero];
+				}
+				return dezenas[dezenaDoNumero];
+			}
+		} else if (unidadeDoNumero != 0) {
+			return centenas[centenaDoNumero] + " e "
+					+ umADezenove[unidadeDoNumero];
 		}
+		return centenas[centenaDoNumero];
 	}
 }
