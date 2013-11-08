@@ -74,5 +74,16 @@ public class TesteNumerosPorExtenso {
 		Assert.assertEquals("oitocentos", ext.extenso(800));
 		Assert.assertEquals("novecentos", ext.extenso(900));
 	}
-
+	@Test
+	public void testeCentenasDezenasUnidades(){
+		Assert.assertEquals("cento e vinte e tres", ext.extenso(123));
+		Assert.assertEquals("duzentos e trinta e quatro", ext.extenso(234));
+		Assert.assertEquals("trezentos e quarenta e cinco", ext.extenso(345));
+		Assert.assertEquals("quatrocentos e cinquenta e seis", ext.extenso(456));
+		Assert.assertEquals("quinhentos e sessenta e sete", ext.extenso(567));
+		Assert.assertEquals("seiscentos e setenta e oito", ext.extenso(678));
+		Assert.assertEquals("setecentos e oitenta e nove", ext.extenso(789));
+		Assert.assertEquals("oitocentos e noventa", ext.extenso(890));
+		Assert.assertEquals("novecentos e um", ext.extenso(901));
+	}
 }
