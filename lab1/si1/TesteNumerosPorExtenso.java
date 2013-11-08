@@ -86,4 +86,16 @@ public class TesteNumerosPorExtenso {
 		Assert.assertEquals("oitocentos e noventa", ext.extenso(890));
 		Assert.assertEquals("novecentos e um", ext.extenso(901));
 	}
+	@Test
+	public void testeMilhares(){
+		Assert.assertEquals("nove mil cento e vinte e tres", ext.extenso(9123));
+		Assert.assertEquals("oito mil duzentos e trinta e quatro", ext.extenso(8234));
+		Assert.assertEquals("sete mil trezentos e quarenta e cinco", ext.extenso(7345));
+		Assert.assertEquals("seis mil quatrocentos e cinquenta e seis", ext.extenso(65456));
+		Assert.assertEquals("cinco mil quinhentos e sessenta e sete", ext.extenso(5567));
+		Assert.assertEquals("quatro mil seiscentos e setenta e oito", ext.extenso(4678));
+		Assert.assertEquals("tres mil setecentos e oitenta e nove", ext.extenso(3789));
+		Assert.assertEquals("dois miloitocentos e noventa", ext.extenso(2890));
+		Assert.assertEquals("um mil novecentos e um", ext.extenso(1901));
+	}
 }
