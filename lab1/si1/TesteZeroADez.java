@@ -27,7 +27,7 @@ public class TesteZeroADez {
 		Assert.assertEquals("nove", ext.extenso(9));
 	}
 	@Test
-	public void testeOnzeADezenove(){
+	public void testeDezADezenove(){
 		Assert.assertEquals("onze", ext.extenso(11));
 		Assert.assertEquals("doze", ext.extenso(12));
 		Assert.assertEquals("treze", ext.extenso(13));
