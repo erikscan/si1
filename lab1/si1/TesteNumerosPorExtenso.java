@@ -76,7 +76,7 @@ public class TesteNumerosPorExtenso {
 	}
 	@Test
 	public void testeCentenasDezenasUnidades(){
-		Assert.assertEquals("cento e vinte e tres", ext.extenso(123));
+		Assert.assertEquals("cento e dezenove", ext.extenso(119));
 		Assert.assertEquals("duzentos e trinta e quatro", ext.extenso(234));
 		Assert.assertEquals("trezentos e quarenta e cinco", ext.extenso(345));
 		Assert.assertEquals("quatrocentos e cinquenta e seis", ext.extenso(456));
@@ -88,14 +88,13 @@ public class TesteNumerosPorExtenso {
 	}
 	@Test
 	public void testeMilhares(){
-		Assert.assertEquals("nove mil cento e vinte e tres", ext.extenso(9123));
-		Assert.assertEquals("oito mil duzentos e trinta e quatro", ext.extenso(8234));
+		Assert.assertEquals("dois milhoes cento e dezenove mil cento e dezenove", ext.extenso(2119119));
+		Assert.assertEquals("oito mil duzentos e trinta e quatro", ext.extenso(1000));
 		Assert.assertEquals("sete mil trezentos e quarenta e cinco", ext.extenso(7345));
-		Assert.assertEquals("seis mil quatrocentos e cinquenta e seis", ext.extenso(65456));
 		Assert.assertEquals("cinco mil quinhentos e sessenta e sete", ext.extenso(5567));
 		Assert.assertEquals("quatro mil seiscentos e setenta e oito", ext.extenso(4678));
 		Assert.assertEquals("tres mil setecentos e oitenta e nove", ext.extenso(3789));
-		Assert.assertEquals("dois miloitocentos e noventa", ext.extenso(2890));
+		Assert.assertEquals("dois mil oitocentos e noventa", ext.extenso(2890));
 		Assert.assertEquals("um mil novecentos e um", ext.extenso(1901));
 	}
 }
