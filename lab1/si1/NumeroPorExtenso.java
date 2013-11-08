@@ -2,8 +2,6 @@ package si1;
 
 public class NumeroPorExtenso {
 
-	
-	
 	String[] umADezenove = { "zero", "um", "dois", "tres", "quatro", "cinco",
 			"seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze",
 			"quatorze", "quize", "dezesseis", "dezessete", "dezoito",
@@ -12,17 +10,26 @@ public class NumeroPorExtenso {
 	String[] dezenas = { "", "", "vinte", "trinta", "quarenta", "cinquenta",
 			"sessenta", "setenta", "oitenta", "noventa" };
 
-	public String extenso(int numero) {
-		int dezenaDoNumero = numero/10;
-		int unidadeDoNumero = numero - (dezenaDoNumero * 10);
+	String[] centenas = { "", "cento", "duzentos", "trezentos", "quatrocentos",
+			"quinhentos", "seiscentos", "setecentos", "oitocentos",
+			"novecentos" };
 
-		if (numero < 20){
+	public String extenso(int numero) {
+		String numeroExtenso = "";
+		int centenaDoNumero = numero / 100;
+		int dezenaDoNumero = (numero / 10) - (centenaDoNumero * 10);
+		int unidadeDoNumero = numero - (dezenaDoNumero * 10) - (centenaDoNumero * 100);
+
+		if(numero == 100){
+			return "cem";
+			}
+		if (numero < 20) {
 			return umADezenove[numero];
 		}
-		if (unidadeDoNumero != 0){
-			return dezenas[dezenaDoNumero] + " e " + umADezenove[unidadeDoNumero];
+		if(dezenaDoNumero > 1){
+			return centenas[centenaDoNumero] + dezenas[dezenaDoNumero] + umADezenove[unidadeDoNumero];
+		}else{
+			return centenas[centenaDoNumero] + umADezenove[unidadeDoNumero];
 		}
-		return dezenas[dezenaDoNumero];
-
 	}
 }
