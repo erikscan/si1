@@ -1,31 +1,115 @@
-@(tasks: List[Task], taskForm: Form[Task])
+@(tarefasNFeitas: List[Task], tarefasFeitas:List[Task], taskForm: Form[Task])
+
+<link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
 
 @import helper._
 
-@main("Todo list") {
-    
-    <h1>@tasks.size() task(s)</h1>
-    
-    <ul>
-        @for(task <- tasks) {
-            <li>
-                @task.label
-                
-                @form(routes.Application.deleteTask(task.id)) {
-                    <input type="submit" value="Delete">
-                }
-            </li>
-        }
-    </ul>
-    
-    <h2>Add a new task</h2>
+@main("Lab2") {
+    <div class="col-xs-8 col-md-offset-2 panel panel-classic">
+    <div class="panel-heading">
+                    <h3>Gerenciador de tarefas</h3>
+    </div>
     
     @form(routes.Application.newTask()) {
-        
-        @inputText(taskForm("label")) 
-        
-        <input type="submit" value="Create">
-        
+        <br>
+        	<div>
+            <span class="input"><b>Nome da tarefa </b></span>
+            </div>
+            <input type="text" name="projeto" class="panel panel-info col-xs-12" placeholder="Nome da tarefa" maxlength="70" required>
+            <div>
+            <span class="input"><b>Descrição da tarefa </b></span>
+            <textarea name = "descricao" class="form-control" rows="3"></textarea>
+            </div>
+            <br>
+            <span class="input"><b>Prioridade</b></span>
+                  <select class="form-horizontal" name="prioridade">
+                                        <option value=1 >1</option>
+                                        <option value=2 >2</option>
+                                        <option value=3 >3</option>
+                                        <option value=4 >4</option>
+                                        <option value=5 >5</option>
+                                        <option value=6 >6</option>
+                                        <option value=7 >7</option>
+                                        <option value=8 >8</option>
+                                        <option value=9 >9</option>
+                                        <option value=10 >10</option>
+                                </select>
+                                <br>
+                                <br>
+        <button class="btn btn-info">Criar</button> 
+    </div>
     }
+    <div class="col-xs-8 col-md-offset-2 ">
+                <div class="panel-heading">                 
+                    <ul class="nav nav-pills nav-stacked">
+  <li class="active">
+    <a href="#">
+      <span class="badge pull-right">@tarefasFeitas.size</span>
+     	 Tarefa(s) não concluida(s)
+    </a>
+  </li>
+</ul>
+        </div>
+        @for(task <- tarefasFeitas) {
+                      <table class="table" width="200px">
+                              <tr>
+                              
+                        <td><b>Tarefa ></b> @task.projeto</td>
+                </tr>
+                <tr>
+                        <td><b>Descrição ></b> @task.descricao</td>
+                </tr>
+                <tr>
+                        <td><b>Prioridade ></b> @task.prioridade</td>
+                </tr>
+            </table>
+            <table>
+            	<td>
+                @form(routes.Application.deleteTask(task.id)) {
+                    <input type="submit" class="btn btn-danger btn-sm" value="Deletar">
+                }
+                        </td>
+                <td>
+                @form(routes.Application.attTarefa(task.id)) {
+                    <input type="submit" class="btn btn-primary btn-sm" name="feita"  value="Feita">
+                }
+                </td>
+                        </table>
+            
+        }
+        
+    </div>
+    <div class="col-xs-8 col-md-offset-2">
+      <div class="panel-heading">        
+   <ul class="nav nav-pills nav-stacked">
+  <li class="active">
+    <a href="#">
+      <span class="badge pull-right">@tarefasNFeitas.size()</span>
+      Tarefa(s) concluida(s)
+    </a>
+  </li>
+</ul>
+        @for(task <- tarefasNFeitas) {
+        
+            <table class="table">
+                    <tr>
+                            <td><b>Tarefa ></b> @task.projeto</td>
+                </tr>
+                <tr>
+                        <td><b>Descrição ></b> @task.descricao</td>
+                </tr>
+                <tr>
+                        <td><b>Prioridade ></b> @task.prioridade</td>
+                </tr>
+            </table>
+            <table>
+                <td>
+                @form(routes.Application.deleteTask(task.id)) {
+                    <input type="submit" class="btn btn-danger btn-sm" value="Deletar">
+                }</td>
+            </table>
+        }
+    </div>
+</div>
     
 }
